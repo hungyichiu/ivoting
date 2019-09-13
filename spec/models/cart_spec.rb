@@ -1,7 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
-  let(:cart) { Cart.new }
+  # let(:cart) { Cart.new }
+
+  def cart
+    @cart = @cart || Cart.new
+  end
+
 
   describe "購物車基本功能" do
       it "可以把商品丟到到購物車裡，然後購物車裡就有東西了" do
@@ -62,6 +67,15 @@ RSpec.describe Cart, type: :model do
 
         expect(cart.serialize).to eq cart_hash
       end
+      it "可以把 Session 的內容（Hash 格式），還原成購物車的內容" do
+        cart = Cart.from_hash(cart_hash)
+
+        # p Cart.new
+
+        expect(cart.items.count).to be 2
+        expect(cart.items.first.quantity).to be 5
+      end
+      
       private
       def cart_hash
         cart_hash = {
@@ -70,14 +84,6 @@ RSpec.describe Cart, type: :model do
               {"product_id" => 2, "quantity" => 3}
             ]
           }
-      end
-      it "可以把 Session 的內容（Hash 格式），還原成購物車的內容" do
-        cart = Cart.from_hash(cart_hash)
-
-        # p Cart.new
-
-        expect(cart.items.count).to be 2
-        expect(cart.items.first.quantity).to be 5
       end
     end
 end

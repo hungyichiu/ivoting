@@ -1,5 +1,8 @@
 <h1>商品列表</h1>
 
+<%=session[:cart5987] %> 
+<%= Cart.from_hash(session[:cart5987]) %>
+
 <ul>
   <% @products.each do |product|%>
     <li>商品名稱：<%= link_to product.name, product%>｜價錢：<%=product.price%>元
