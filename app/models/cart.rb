@@ -21,6 +21,20 @@ class Cart
   end
 
   def total_cost
-    @items.reduce(0){|sum,i| sum + i.expense}
+     total = @items.reduce(0){|sum,i| sum + i.expense}
+     if super_good_day?
+       total = total * 0.9
+     end
+     total
+  end
+
+
+  private
+  def super_good_day?
+    Time.now.month == 2 && Time.now.day == 10
+  end
+
+  def is_xmas
+    Time.now.month == 12 && Time.now.day == 25
   end
 end
