@@ -20,4 +20,7 @@ class Cart
     @items.empty?
   end
 
+  def total_cost
+    @items.reduce(0){|sum,i| sum + i.expense}
+  end
 end
