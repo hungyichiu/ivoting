@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :products do
+    member do
+      put :add_to_cart
+    end
+  end
+
   root 'candidates#index'
 
   # /api/v2/candidates
