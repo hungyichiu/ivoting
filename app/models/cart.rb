@@ -28,6 +28,24 @@ class Cart
      total
   end
 
+  def serialize
+    # {
+    #   "items" => [
+    #     {"product_id" => 1, "quantity" => 3},
+    #     {"product_id" => 2, "quantity" => 2}
+    #   ]
+    # }
+    # list = []
+
+    # @items.each do|i| 
+    #   list << {"product_id" => i.product_id, "quantity" => i.quantity}
+    # end
+
+    list = @items.map{|i| {"product_id" => i.product_id, "quantity" => i.quantity} }
+
+    { "items" => list }
+  end
+
 
   private
   def super_good_day?
