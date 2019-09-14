@@ -20,6 +20,10 @@ class Cart
     @items.empty?
   end
 
+  def present?
+    !empty? 
+  end
+
   def total_cost
      total = @items.reduce(0){|sum,i| sum + i.expense}
      if super_good_day?

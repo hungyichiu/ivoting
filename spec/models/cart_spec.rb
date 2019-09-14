@@ -12,6 +12,7 @@ RSpec.describe Cart, type: :model do
       it "可以把商品丟到到購物車裡，然後購物車裡就有東西了" do
         cart.add_item(1)
         expect(cart.empty?).to be false
+        expect(cart.present?).to be true
       end
       it "如果加了相同種類的商品到購物車裡，購買項目（CartItem）並不會增加，但商品的數量會改變" do
         5.times {cart.add_item(1)}

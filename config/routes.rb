@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   resource :cart, only: [:show, :destroy]
 
+  get '/checkout', to: 'carts#checkout'
+
   root 'candidates#index'
 
   # /api/v2/candidates
