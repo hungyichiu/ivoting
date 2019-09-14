@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :cart, only: [:show, :destroy]
+
   root 'candidates#index'
 
   # /api/v2/candidates
