@@ -12,7 +12,9 @@ class CartsController < ApplicationController
   end
 
   def checkout
-    
+    # @order = Order.new 
+    @order = current_user.orders.build # 一對多的寫法
+             # current_user.build_order 一對一的寫法
   end
  
   private

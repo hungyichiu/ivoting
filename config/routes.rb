@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   end
 
   resource :cart, only: [:show, :destroy]
+  
+  resources :orders, only: [:create]
 
   get '/checkout', to: 'carts#checkout'
 
