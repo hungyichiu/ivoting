@@ -5,6 +5,7 @@ FactoryBot.define do
     address { Faker::Address.full_address}  #查文件
     note { Faker::Lorem.sentences }
     status { "MyString" }
+    user {create(:user)}
 
     trait :invalid do
       phone { nil } 
