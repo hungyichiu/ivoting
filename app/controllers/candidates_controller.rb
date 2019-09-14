@@ -1,11 +1,14 @@
 class CandidatesController < ApplicationController
   before_action :find_candidate, only: [:show, :edit, :update, :destroy, :vote, :log]
 
+  include ProductsHelper
+
   def index
     @candidates = Candidate.order(vote: :desc).page(params[:page])
   end
 
   def show
+    star_mark(@candidate)
   end
 
   def new

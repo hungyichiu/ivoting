@@ -25,13 +25,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])  
   end
 
-  def current_cart
-    # Cart.from_hash(session[:cart5987]) #這樣寫有問題
-    # @cart = @cart || Cart.from_hash(session[:cart5987])
-
-    @cart || @cart = Cart.from_hash(session[:cart5987])
-    # @cart ||= Cart.from_hash(session[:cart5987])  
-    
-  end
+  
   
 end
