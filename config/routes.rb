@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resource :cart, only: [:show, :destroy]
   
-  resources :orders, only: [:create] do
+  resources :orders, only: [:create, :index, :show] do
     member do
       get :payment
     end
