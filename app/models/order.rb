@@ -6,7 +6,7 @@ class Order < ApplicationRecord
 
   include AASM
 
-  aasm column: :status, no_direct_assignment: true do
+  aasm column: :status do
     state :pending, initial: true
     state :paid, :delivered, :refunded, :cancelled
 
@@ -27,7 +27,7 @@ class Order < ApplicationRecord
     end
 
     event :refund do
-      transitions from: [:pending, :paid ], to: :refunded
+      transitions from: [:delivered, :paid ], to: :refunded
     end
   end
 
