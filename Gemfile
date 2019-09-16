@@ -18,6 +18,9 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'bootstrap4-kaminari-views', '~> 1.0', '>= 1.0.1'
 gem 'simple_form', '~> 4.1'
 gem 'timecop', '~> 0.9.1'
+gem 'aasm', '~> 4.11'
+gem 'google', '~> 1.0', '>= 1.0.10'
+gem 'google-api-client', '~> 0.31.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
